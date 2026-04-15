@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>刘哲汐｜个人简历网站</title>
+  <meta name="description" content="刘哲汐个人简历主页，聚焦游戏海外内容运营、创作者运营与内容策划。" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <title>刘哲汐｜个人简历</title>
   <style>
     :root {
       --bg: #f5f7fa;
@@ -102,20 +104,61 @@
     }
 
     .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .brand-copy {
       min-width: 0;
     }
 
     .brand strong {
       display: block;
-      font-size: 1rem;
+      font-size: 1.95rem;
+      line-height: 1;
       letter-spacing: 0.08em;
+      font-weight: 800;
     }
 
     .brand span {
       display: block;
-      margin-top: 2px;
+      margin-top: 6px;
       color: var(--muted);
-      font-size: 0.9rem;
+      font-size: 0.96rem;
+    }
+
+    .topbar-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 42px;
+      padding: 0 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(18, 32, 51, 0.08);
+      background: rgba(255, 255, 255, 0.8);
+      color: #33506e;
+      font-size: 0.95rem;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65);
+      white-space: nowrap;
+    }
+
+    .status-pill::before {
+      content: "";
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: #6fd7b5;
+      box-shadow: 0 0 0 8px rgba(111, 215, 181, 0.14);
     }
 
     .nav {
@@ -134,6 +177,7 @@
       cursor: pointer;
       transition: color var(--transition), background var(--transition), transform var(--transition), box-shadow var(--transition);
       font-size: 0.95rem;
+      min-height: 42px;
     }
 
     .nav-button:hover,
@@ -146,8 +190,8 @@
 
     .nav-button.is-active {
       color: var(--text);
-      background: linear-gradient(135deg, rgba(125, 184, 255, 0.2), rgba(126, 216, 188, 0.18));
-      box-shadow: inset 0 0 0 1px rgba(125, 184, 255, 0.18);
+      background: linear-gradient(135deg, rgba(125, 184, 255, 0.24), rgba(125, 184, 255, 0.12));
+      box-shadow: inset 0 0 0 1px rgba(125, 184, 255, 0.18), 0 8px 18px rgba(125, 184, 255, 0.12);
     }
 
     .panel-wrap {
@@ -529,31 +573,80 @@
 
     .contact-stack {
       display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 12px;
     }
 
-    .contact-line {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
+    .contact-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 0 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(18, 32, 51, 0.07);
+      background: rgba(255, 255, 255, 0.84);
+      color: #294561;
+      font-family: "HarmonyOS Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+    }
+
+    .contact-button:hover,
+    .contact-button:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px rgba(24, 39, 75, 0.08);
+      border-color: rgba(125, 184, 255, 0.2);
+      outline: none;
+    }
+
+    .contact-button.primary {
+      background: linear-gradient(135deg, rgba(125, 184, 255, 0.18), rgba(255, 255, 255, 0.92));
+    }
+
+    .contact-button.secondary {
+      background: linear-gradient(135deg, rgba(126, 216, 188, 0.14), rgba(255, 255, 255, 0.92));
+    }
+
+    .contact-meta {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 12px;
+    }
+
+    .contact-meta-item {
       padding: 14px 16px;
       border-radius: 18px;
-      background: rgba(255, 255, 255, 0.82);
+      background: rgba(255, 255, 255, 0.78);
       border: 1px solid rgba(18, 32, 51, 0.06);
+      font-family: "HarmonyOS Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
     }
 
-    .contact-line strong {
-      font-size: 0.95rem;
+    .contact-meta-item strong {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 10px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      color: #24547e;
+      background: rgba(125, 184, 255, 0.12);
+    }
+
+    .contact-meta-item span {
+      display: block;
+      color: #415a74;
+      line-height: 1.6;
+      font-size: 1rem;
       font-weight: 600;
-      color: #33465a;
-    }
-
-    .contact-line span {
-      color: var(--text);
-      line-height: 1.7;
-      text-align: right;
       word-break: break-word;
+      white-space: nowrap;
     }
 
     .signal-grid {
@@ -567,19 +660,46 @@
       border-radius: 18px;
       background: rgba(255, 255, 255, 0.76);
       border: 1px solid rgba(18, 32, 51, 0.06);
+      font-family: "HarmonyOS Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
     }
 
     .signal-card strong {
-      display: block;
-      font-size: 1rem;
-      margin-bottom: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 10px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      color: #28635a;
+      background: rgba(126, 216, 188, 0.14);
     }
 
     .signal-card span {
       display: block;
-      color: var(--muted);
-      line-height: 1.75;
-      font-size: 0.93rem;
+      color: #405a73;
+      line-height: 1.58;
+      font-size: 0.98rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .contact-button.primary,
+    .contact-button.secondary {
+      font-size: 0.98rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+    }
+
+    .contact-button.primary {
+      color: #24538a;
+    }
+
+    .contact-button.secondary {
+      color: #246454;
     }
 
     .home-showcase {
@@ -893,6 +1013,96 @@
       line-height: 1.8;
     }
 
+    .qr-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 30;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: rgba(11, 21, 34, 0.34);
+      backdrop-filter: blur(10px);
+    }
+
+    .qr-modal.is-open {
+      display: flex;
+    }
+
+    .qr-dialog {
+      width: min(100%, 360px);
+      padding: 22px;
+      border-radius: 26px;
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 30px 80px rgba(12, 22, 36, 0.18);
+    }
+
+    .qr-dialog-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .qr-dialog h3 {
+      font-size: 1.2rem;
+      line-height: 1.3;
+    }
+
+    .qr-dialog p {
+      margin-top: 6px;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 0.94rem;
+    }
+
+    .qr-close {
+      width: 38px;
+      height: 38px;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(18, 32, 51, 0.06);
+      color: #38506c;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: background var(--transition), transform var(--transition);
+    }
+
+    .qr-close:hover,
+    .qr-close:focus-visible {
+      background: rgba(125, 184, 255, 0.14);
+      transform: scale(1.04);
+      outline: none;
+    }
+
+    .qr-figure {
+      margin: 0;
+      display: grid;
+      place-items: center;
+      gap: 12px;
+      padding: 18px;
+      border-radius: 22px;
+      background: linear-gradient(160deg, rgba(247, 250, 255, 0.96), rgba(255, 255, 255, 0.92));
+      border: 1px solid rgba(18, 32, 51, 0.06);
+    }
+
+    .qr-figure img {
+      display: block;
+      width: min(100%, 220px);
+      height: auto;
+      border-radius: 18px;
+      background: #ffffff;
+    }
+
+    .qr-figure figcaption {
+      color: var(--muted);
+      text-align: center;
+      line-height: 1.7;
+      font-size: 0.92rem;
+    }
+
     @media (max-width: 960px) {
       .topbar {
         border-radius: 28px;
@@ -913,6 +1123,10 @@
       .panel-wrap {
         min-height: 0;
       }
+
+      .topbar-actions {
+        justify-content: flex-start;
+      }
     }
 
     @media (max-width: 720px) {
@@ -926,6 +1140,14 @@
         display: grid;
         gap: 14px;
         margin-bottom: 20px;
+      }
+
+      .brand strong {
+        font-size: 1.55rem;
+      }
+
+      .topbar-actions {
+        justify-content: flex-start;
       }
 
       .nav {
@@ -965,8 +1187,16 @@
         align-items: flex-start;
       }
 
-      .contact-line {
-        display: grid;
+      .contact-stack {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-meta {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-button {
+        width: 100%;
       }
     }
 
@@ -985,15 +1215,20 @@
   <div class="shell">
     <header class="topbar">
       <div class="brand">
-        <strong>LIU ZHEXI</strong>
-        <span>个人简历网站</span>
+        <div class="brand-copy">
+          <strong>LIU ZHEXI</strong>
+          <span>个人简历 / Personal Resume</span>
+        </div>
       </div>
-      <nav class="nav" aria-label="页面栏目切换">
-        <button class="nav-button is-active" type="button" data-target="home">首页</button>
-        <button class="nav-button" type="button" data-target="experience">工作/项目经历</button>
-        <button class="nav-button" type="button" data-target="education">教育背景</button>
-        <button class="nav-button" type="button" data-target="skills">技能特长</button>
-      </nav>
+      <div class="topbar-actions">
+        <span class="status-pill">开放求职中</span>
+        <nav class="nav" aria-label="页面栏目切换">
+          <button class="nav-button is-active" type="button" data-target="home">首页</button>
+          <button class="nav-button" type="button" data-target="experience">工作/项目经历</button>
+          <button class="nav-button" type="button" data-target="education">教育背景</button>
+          <button class="nav-button" type="button" data-target="skills">技能特长</button>
+        </nav>
+      </div>
     </header>
 
     <main class="panel-wrap">
@@ -1002,7 +1237,7 @@
           <article class="card hero-copy">
             <div class="card-inner">
               <div class="hero-topline">
-                <span class="eyebrow">Content Operations Portfolio</span>
+                <span class="eyebrow">Personal Resume</span>
               </div>
               <h1>刘哲汐</h1>
               <p class="intent">
@@ -1050,16 +1285,6 @@
                 <img class="avatar-image" id="avatarImage" alt="刘哲汐头像" />
               </div>
               <div class="profile-summary">有游戏厂商与海内外平台运营经验，熟悉创作者运营管理体系，兼顾内容策划、社媒增长与音视频内容制作。</div>
-              <div class="contact-stack">
-                <div class="contact-line">
-                  <strong>手机</strong>
-                  <span>18988296068</span>
-                </div>
-                <div class="contact-line">
-                  <strong>邮箱</strong>
-                  <span>zeic6@outlook.com</span>
-                </div>
-              </div>
               <div class="signal-grid">
                 <div class="signal-card">
                   <strong>求职方向</strong>
@@ -1069,6 +1294,20 @@
                   <strong>内容形式</strong>
                   <span>图文、短视频、长视频、播客</span>
                 </div>
+              </div>
+              <div class="contact-meta">
+                <div class="contact-meta-item">
+                  <strong>手机号</strong>
+                  <span>18988296068</span>
+                </div>
+                <div class="contact-meta-item">
+                  <strong>邮箱</strong>
+                  <span>zeic6@outlook.com</span>
+                </div>
+              </div>
+              <div class="contact-stack">
+                <button class="contact-button secondary" type="button" id="wechatCardButton">微信联系方式</button>
+                <a class="contact-button primary" href="刘哲汐简历.pdf" download>下载 PDF 简历</a>
               </div>
             </div>
           </article>
@@ -1340,6 +1579,20 @@
        </main>
   </div>
 
+  <div class="qr-modal" id="qrModal" aria-hidden="true">
+    <div class="qr-dialog" role="dialog" aria-modal="true" aria-labelledby="qrTitle">
+      <div class="qr-dialog-head">
+        <div>
+          <h3 id="qrTitle">微信联系方式</h3>
+        </div>
+        <button class="qr-close" type="button" id="qrClose" aria-label="关闭弹窗">×</button>
+      </div>
+      <figure class="qr-figure">
+        <img src="wechat-qr.svg" alt="微信二维码" />
+      </figure>
+    </div>
+  </div>
+
   <script>
     const navButtons = Array.from(document.querySelectorAll(".nav-button"));
     const panels = Array.from(document.querySelectorAll(".panel"));
@@ -1375,6 +1628,41 @@
 
     const avatarFrame = document.getElementById("avatarFrame");
     const avatarImage = document.getElementById("avatarImage");
+    const qrModal = document.getElementById("qrModal");
+    const qrClose = document.getElementById("qrClose");
+    const wechatButtons = ["wechatCardButton"]
+      .map((id) => document.getElementById(id))
+      .filter(Boolean);
+
+    function openQrModal() {
+      qrModal.classList.add("is-open");
+      qrModal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeQrModal() {
+      qrModal.classList.remove("is-open");
+      qrModal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    }
+
+    wechatButtons.forEach((button) => {
+      button.addEventListener("click", openQrModal);
+    });
+
+    qrClose.addEventListener("click", closeQrModal);
+
+    qrModal.addEventListener("click", (event) => {
+      if (event.target === qrModal) {
+        closeQrModal();
+      }
+    });
+
+    window.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && qrModal.classList.contains("is-open")) {
+        closeQrModal();
+      }
+    });
 
     /* 头像优先级探测：按 png -> jpg -> jpeg 依次尝试，只要一个成功就立即使用 */
     async function probeAvatar() {
