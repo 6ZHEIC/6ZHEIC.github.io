@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>Decode QR</title>
+</head>
+<body>
+  <img id="qr" src="wechat-qr.jpg" alt="qr" />
+  <pre id="out">pending</pre>
+  <script>
+    async function main() {
+      const out = document.getElementById("out");
+      if (!("BarcodeDetector" in window)) {
+        out.textContent = "BarcodeDetector unsupported";
+        return;
+      }
+
+      try {
+        const detector = new BarcodeDetector({ formats: ["qr_code"] });
+        const image = document.getElementById("qr");
+        await new Promise((resolve, reject) => {
+          if (image.complete) {
+            resolve();
+            return;
+          }
+          image.onload = resolve;
+          image.onerror = reject;
+        });
+        const results = await detector.detect(image);
+        out.textContent = results.length ? results[0].rawValue : "No QR found";
+      } catch (error) {
+        out.textContent = "ERROR: " + error.message;
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>
